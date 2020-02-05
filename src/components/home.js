@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Question from './question'
+import PollCard from './pollCard'
 class Home extends Component {
 
     state = {
@@ -17,7 +17,8 @@ class Home extends Component {
     }
 
     render(){
-        const { answeredQuestionsID, unAnsweredQuestionsID} = this.props
+        
+        const { answeredQuestionsID,  unAnsweredQuestionsID} = this.props
         const { questionType } = this.state
         return(
             <div>
@@ -25,26 +26,17 @@ class Home extends Component {
                 <button onClick={this.handleSwitchBtn} value="Unanswered">Unanswered</button>
                 <button onClick={this.handleSwitchBtn} value="Answered">Answered</button>
                 {
-                    questionType === 'Answered'
-                        ?
-                        (answeredQuestionsID.map((id) => (
-                            <Question key={id} id={id}/>
-                            ))
-                        )
-                        :
-                        (unAnsweredQuestionsID.map((id) => (
-                            <Question key={id} id={id}/>
-                            ))
-                        )
-
-
+                    (questionType === 'Answered' ? answeredQuestionsID : unAnsweredQuestionsID)
+                        .map((id) => (
+                        <PollCard key={id} id={id}/>
+                        ))
                 }
             </div>
         ) 
     }
 }
 
-const mapStateToProps = ({ questions, authedUser }) => {
+const mapStateToProps = ({ questions, authedUser,users }) => {
     const questionsID = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
     let answeredQuestionsID = []
     let unAnsweredQuestionsID = []
