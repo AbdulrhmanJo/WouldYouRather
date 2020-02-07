@@ -156,6 +156,8 @@ let users = {
   }
   
   export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+    console.log(authedUser, qid, answer);
+    
     return new Promise((res, rej) => {
       setTimeout(() => {
         users = {

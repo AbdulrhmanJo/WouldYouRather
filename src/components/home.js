@@ -17,7 +17,6 @@ class Home extends Component {
     }
 
     render(){
-        
         const { answeredQuestionsID,  unAnsweredQuestionsID} = this.props
         const { questionType } = this.state
         return(

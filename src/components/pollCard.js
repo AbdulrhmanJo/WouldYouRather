@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { convertTime } from '../utils/helpers'
+import { Link } from 'react-router-dom'
 class PollCard extends Component {
 
-    handleQuestionAnswer = (event) => {
-        const btn = event.target
-        const btnText = btn.textContent;
-        btn.textContent = 'your choice is '+btnText
-    }
 
     render(){
 
-        const { timestamp, optionOne, optionTwo } = this.props.question
+        const { id,timestamp, optionOne, optionTwo } = this.props.question
 
         const { name , avatarURL} = this.props.user
         
         return (
-            <div className="question">
+            <Link to={`/question/${id}`} className="question">
                 <div className="question-header">
                     <div className="question-header-avatar">
                         <img src={avatarURL} alt={`avatar of ${name}`} className="avatar"/>
@@ -59,7 +55,7 @@ class PollCard extends Component {
                     // })
                 } */}
                
-            </div>
+            </Link>
 
         )
     }

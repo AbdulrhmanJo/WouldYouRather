@@ -9,14 +9,10 @@
 }
 body {
   font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .center{
   font-family: 'Pacifico';
-  text-align: center;
   margin-top: 4rem;
   text-transform: capitalize;
 }
@@ -24,11 +20,12 @@ body {
 .container{
   width: 80rem;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
 }
 
 .question{
+  display: block;
   border: .1rem solid rgb(185, 185, 185);
   margin: 1rem;
   width: 35rem;
