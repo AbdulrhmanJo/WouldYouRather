@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollQuestion from "./PollQuestion";
+import PollResault from "./PollResault";
 class PollPage extends Component {
-   
-
     render(){        
         const { name, avatarURL } = this.props.user 
         const { id } = this.props.match.params
@@ -16,7 +15,7 @@ class PollPage extends Component {
                 <p>Asked by <span>{name}</span></p>
                 {
                     answers[id] 
-                        ? <p>question answerd</p> 
+                        ? <PollResault question={this.props.question}/>
                         : <PollQuestion id={id}/>
                             
                 }
@@ -31,6 +30,7 @@ const mapStateToProp = ({ questions, authedUser, users}, { match }) => {
     const user = users[question.author]    
     const authedUserInfo = users[authedUser]
     return {
+        question,
         user,
         authedUserInfo
     }

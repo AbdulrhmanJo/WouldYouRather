@@ -4,7 +4,7 @@ import { handleInitialData } from '../actions/shared'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './home'
 import PollPage from './pollPage'
-
+import Leaderboard from './Leaderboard'
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
@@ -18,8 +18,9 @@ class App extends Component {
         { loading
         ? <p>Loading</p>
         : <div>
-            <Route path='/question/:id' exact component={PollPage} />
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact component={Leaderboard} />
+            <Route path='/questions/:id' exact component={PollPage} />
+            <Route path='/leaderboard' exact component={Leaderboard} />
           </div>
         }
           

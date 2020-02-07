@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { handleSaveQuestionAnswer } from '../actions/questions'
 import { connect } from 'react-redux'
+import Option from './Option'
 class PollQuestion extends Component {
     state = {
         option: null
@@ -29,24 +30,20 @@ class PollQuestion extends Component {
             <div>
                 <p>Choose one option:</p>
                 <form onSubmit={this.handlePollAnswer}>
-                    <label>
-                        <input 
-                            type='radio' 
-                            name={id}  
-                            value="optionOne"
-                            checked={this.state.option === 'optionOne'}
-                            onChange={this.handleUserchoice}/>
-                            {optionOne.text}
-                    </label>
-                    <label>
-                        <input 
-                            type='radio' 
-                            name={id}  
-                            value="optionTwo"
-                            checked={this.state.option === 'optionTwo'}
-                            onChange={this.handleUserchoice}/>
-                            {optionTwo.text}
-                    </label>
+                    <Option 
+                        id={id} 
+                        option='optionOne'
+                        stateOption={this.state.option}
+                        optionText={optionOne.text}
+                        handleUserchoice={this.handleUserchoice}
+                    />
+                    <Option 
+                        id={id} 
+                        option='optionTwo' 
+                        stateOption={this.state.option}
+                        optionText={optionTwo.text}
+                        handleUserchoice={this.handleUserchoice}
+                    />
                     <button>vote</button>
                 </form>
             </div>

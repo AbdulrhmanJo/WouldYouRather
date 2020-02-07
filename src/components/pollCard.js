@@ -3,16 +3,12 @@ import { connect } from 'react-redux'
 import { convertTime } from '../utils/helpers'
 import { Link } from 'react-router-dom'
 class PollCard extends Component {
-
-
     render(){
-
         const { id,timestamp, optionOne, optionTwo } = this.props.question
-
         const { name , avatarURL} = this.props.user
         
         return (
-            <Link to={`/question/${id}`} className="question">
+            <Link to={`/questions/${id}`} className="question">
                 <div className="question-header">
                     <div className="question-header-avatar">
                         <img src={avatarURL} alt={`avatar of ${name}`} className="avatar"/>
@@ -27,34 +23,7 @@ class PollCard extends Component {
                 <p className="question-text">
                     {`would you rather ${optionOne.text} or ${optionTwo.text} ?`}
                 </p>
-                <p className="question-date">{convertTime(timestamp)}</p>
-                {/* <h4>would you rather?</h4>
-                {
-
-                    answers[id]
-                    ?  <div>
-                            <button disabled={true} className="answerBtn" onClick={this.handleQuestionAnswer}>
-                                {optionOne.text}
-                            </button>
-                            <button  disabled={true}  className="answerBtn" onClick={this.handleQuestionAnswer}>
-                                {optionTwo.text}
-                            </button>
-                        </div>
-                    :   <div>
-                            <button className="answerBtn" onClick={this.handleQuestionAnswer}>
-                                {optionOne.text}
-                            </button>
-                            <button className="answerBtn" onClick={this.handleQuestionAnswer}>
-                                {optionTwo.text}
-                            </button>
-                        </div>
-                    // optionTwo.votes.map(id => {
-                    //     if(id === authedUser){
-                    //         return <p>you answered this Q</p>
-                    //     }
-                    // })
-                } */}
-               
+                <p className="question-date">{convertTime(timestamp)}</p> 
             </Link>
 
         )
