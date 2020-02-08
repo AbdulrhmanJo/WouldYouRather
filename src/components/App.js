@@ -7,28 +7,52 @@ import PollPage from './pollPage'
 import Leaderboard from './Leaderboard'
 import NewPoll from './newPoll'
 import Navbar from './Navbar';
+import { setAuthedUser } from '../actions/authedUser'
 class App extends Component {
+  signIn = (event) => {
+    event.preventDefault()
+    const id = this.input.value
+    this.props.dispatch(setAuthedUser(id))
+  }
+
+  signOut = (event) => {
+    event.preventDefault()
+    const id = null
+    this.props.dispatch(setAuthedUser(id))
+  }
   componentDidMount(){
     this.props.dispatch(handleInitialData())
   }
 
   render(){
-    const { loading } = this.props
+    const { unAuthorised } = this.props
     return (
       <BrowserRouter>
-        <Navbar />
-        <div className="container">
-        { loading
-        ? <p>Loading</p>
-        : <div>
-            <Route path='/' exact component={Home} />
-            <Route path='/add' exact component={NewPoll} />
-            <Route path='/leaderboard' exact component={Leaderboard} />
-            <Route path='/questions/:id' exact component={PollPage} />
-          </div>
-        }
-          
-        </div>
+        { unAuthorised
+          ? (
+              <div>
+                <h1>please sign in to complete:</h1>
+                <form onSubmit={this.signIn}>
+                  <label>
+                    username
+                    <input 
+                      type='text' 
+                      ref={(input) => this.input = input}/>
+                  </label>
+                  <button>signIn</button>
+                </form>
+              </div>
+            
+            )
+          : <div className='container'>
+              <Navbar />
+              <button onClick={this.signOut}>signOut</button>
+              <Route exact path='/' component={Home} />
+              <Route path='/add' component={NewPoll} />
+              <Route path='/leaderboard' component={Leaderboard} />
+              <Route path='/questions/:id' component={PollPage} />
+            </div>
+          }
       </BrowserRouter>
       
     );
@@ -37,7 +61,7 @@ class App extends Component {
 
 const mapStateToProp = ({authedUser}) => {
   return{
-    loading: authedUser === null 
+    unAuthorised: authedUser === null 
   }
 }
 

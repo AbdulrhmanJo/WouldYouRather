@@ -5,15 +5,12 @@ import { getInitialData } from '../utils/api'
 
 export const SAVE_QUESTIONS_ANSWER = 'SAVE_QUESTIONS_ANSWER'
 
-const authedUser_id = 'tylermcginnis'
-
 export function handleInitialData(){
     return (dispatch) => {
         return getInitialData()
         .then(({users,questions}) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
-            dispatch(setAuthedUser(authedUser_id))
         })
     }
 }

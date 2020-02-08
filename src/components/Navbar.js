@@ -6,17 +6,17 @@ const Navbar = (props) => {
         <nav>
             <ul>
                 <li>
-                    <NavLink to="/" exact>
+                    <NavLink to="/">
                         Home
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/add" exact>
+                    <NavLink to="/add">
                         new poll
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/leaderboard" exact>
+                    <NavLink to="/leaderboard">
                         leaderboard
                     </NavLink>
                 </li>
