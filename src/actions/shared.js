@@ -3,6 +3,8 @@ import { receiveQuestions } from './questions'
 import { setAuthedUser } from './authedUser'
 import { getInitialData } from '../utils/api'
 
+export const SAVE_QUESTIONS_ANSWER = 'SAVE_QUESTIONS_ANSWER'
+
 const authedUser_id = 'tylermcginnis'
 
 export function handleInitialData(){
