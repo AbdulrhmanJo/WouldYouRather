@@ -13,7 +13,7 @@ class PollCard extends Component {
                     <div className="question-header-avatar">
                         <img src={avatarURL} alt={`avatar of ${name}`} className="avatar"/>
                         <div>
-                            <p>{name}</p>    
+                            <p className="question-header-avatar--name">{name}</p>    
                         </div>
                     </div>
                     <div className="question-header-votes">
@@ -21,7 +21,7 @@ class PollCard extends Component {
                     </div> 
                 </div>
                 <p className="question-text">
-                    {`would you rather ${optionOne.text} or ${optionTwo.text} ?`}
+                    {`Would you rather ${optionOne.text} or ${optionTwo.text} ?`}
                 </p>
                 <p className="question-date">{convertTime(timestamp)}</p> 
             </Link>

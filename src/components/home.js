@@ -37,9 +37,11 @@ class Home extends Component {
     componentDidMount(){
         document.addEventListener('click', this.closeDropDwon)
     }
+
     componentWillUnmount(){
         document.removeEventListener('click', this.closeDropDwon)
     }
+
     render(){
         const { answeredQuestionsID,  unAnsweredQuestionsID} = this.props
         const { questionType } = this.state
@@ -63,6 +65,7 @@ class Home extends Component {
                             }
                     </div>
                 </div>
+                <p className="info">Below are the Questions created by all users.</p>
                 
                 {
                     (questionType === 'Answered' ? answeredQuestionsID : unAnsweredQuestionsID)
