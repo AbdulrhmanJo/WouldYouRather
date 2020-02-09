@@ -55,6 +55,11 @@ body {
       padding: .5rem 1.2rem;
       border-radius: 2rem;
       color: rgb(87, 87, 87);
+      transition: all .2s;
+      cursor: pointer;
+      &:hover{
+        background-color: #e6e6e6;
+      }
     }
   }
   &-list{
@@ -72,7 +77,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        transition: all .1s;
       }
       
       &:hover:not(.active){

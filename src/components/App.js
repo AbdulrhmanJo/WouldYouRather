@@ -8,12 +8,9 @@ import Leaderboard from './Leaderboard'
 import NewPoll from './newPoll'
 import Navbar from './Navbar';
 import { setAuthedUser } from '../actions/authedUser'
+import Login from './login'
 class App extends Component {
-  signIn = (event) => {
-    event.preventDefault()
-    const id = this.input.value
-    this.props.dispatch(setAuthedUser(id))
-  }
+ 
 
   signOut = (event) => {
     event.preventDefault()
@@ -30,21 +27,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         { unAuthorised
-          ? (
-              <div>
-                <h1>please sign in to complete:</h1>
-                <form onSubmit={this.signIn}>
-                  <label>
-                    username
-                    <input 
-                      type='text' 
-                      ref={(input) => this.input = input}/>
-                  </label>
-                  <button>signIn</button>
-                </form>
-              </div>
-            
-            )
+          ? <Login />
           : <div className='container'>
               <Navbar user={user} signOut={this.signOut}/>
               <div className="main">

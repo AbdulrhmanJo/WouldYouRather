@@ -3,13 +3,18 @@ import {NavLink} from 'react-router-dom'
 import { AiTwotoneHome,AiOutlineHome,AiOutlineTrophy,AiTwotoneTrophy } from 'react-icons/ai'
 import {IoMdAddCircleOutline,IoMdAddCircle} from 'react-icons/io'
 import { withRouter } from "react-router";
-
+import { setAuthedUser } from '../actions/authedUser'
+import { connect } from 'react-redux'
 class Navbar extends Component {
+    signOut = (event) => {
+        event.preventDefault()
+        const id = null
+        this.props.dispatch(setAuthedUser(id))
+    }
+
     render(){
     const { avatarURL, name} = this.props.user
     const { location } = this.props
-
-    console.log(this.props);
     
     return (
         <nav className="nav">
@@ -64,4 +69,11 @@ class Navbar extends Component {
     }
 }
 
-export default withRouter(Navbar)
+const mapStateToProp = ({authedUser, users}) => {
+    const user = users[authedUser]
+    return{
+      user
+    }
+  }
+
+export default connect(mapStateToProp)(withRouter(Navbar))
