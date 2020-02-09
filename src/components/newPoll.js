@@ -38,26 +38,29 @@ class NewPoll extends Component {
         }
 
         return(
-            <div>
-                <h1>create new Question</h1>
+            <div >
+                <h1 className="top-section--heading">Create Question</h1>
                 <form onSubmit={this.addNewPoll}>
-                    <p>complete the question:</p>
-                    <p>would you rather...</p>
-                    <input 
-                        name='optionOne'
-                        type='text' 
-                        placeholder="Enter option one text here"
-                        value = {optionOne}
-                        onChange= {this.handleStateChange}
-                    />
-                    <input 
-                        name='optionTwo'
-                        type='text' 
-                        placeholder="Enter option Two text here"
-                        value = {optionTwo}
-                        onChange= {this.handleStateChange}
-                    />
-                    <button disabled={!optionOne ||  !optionTwo}>add</button>
+                    <p className="form-text">Complete the below fields to create your question</p>
+                    <p className="form-question">Would you rather...</p>
+                    <div className="form-options">
+                        <input 
+                            name='optionOne'
+                            type='text' 
+                            placeholder="Enter option one"
+                            value = {optionOne}
+                            onChange= {this.handleStateChange}
+                        />
+                        <input 
+                            name='optionTwo'
+                            type='text' 
+                            placeholder="Enter option Two"
+                            value = {optionTwo}
+                            onChange= {this.handleStateChange}
+                        />
+                    </div>
+                    
+                    <button className='form-btn' disabled={!optionOne ||  !optionTwo}>add</button>
                 </form>
             </div>
         )
