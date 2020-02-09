@@ -20,12 +20,13 @@ class App extends Component {
     const id = null
     this.props.dispatch(setAuthedUser(id))
   }
+
   componentDidMount(){
     this.props.dispatch(handleInitialData())
   }
 
   render(){
-    const { unAuthorised } = this.props
+    const { unAuthorised, user} = this.props
     return (
       <BrowserRouter>
         { unAuthorised
@@ -45,12 +46,13 @@ class App extends Component {
             
             )
           : <div className='container'>
-              <Navbar />
-              <button onClick={this.signOut}>signOut</button>
-              <Route exact path='/' component={Home} />
-              <Route path='/add' component={NewPoll} />
-              <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/questions/:id' component={PollPage} />
+              <Navbar user={user} signOut={this.signOut}/>
+              <div className="main">
+                <Route exact path='/' component={Home} />
+                <Route path='/add' component={NewPoll} />
+                <Route path='/leaderboard' component={Leaderboard} />
+                <Route path='/questions/:id' component={PollPage} />
+              </div>
             </div>
           }
       </BrowserRouter>
@@ -59,9 +61,11 @@ class App extends Component {
   } 
 }
 
-const mapStateToProp = ({authedUser}) => {
+const mapStateToProp = ({authedUser, users}) => {
+  const user = users[authedUser]
   return{
-    unAuthorised: authedUser === null 
+    unAuthorised: authedUser === null,
+    user
   }
 }
 

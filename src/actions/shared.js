@@ -1,7 +1,7 @@
 import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
-import { setAuthedUser } from './authedUser'
 import { getInitialData } from '../utils/api'
+import { setAuthedUser } from './authedUser'
 
 export const SAVE_QUESTIONS_ANSWER = 'SAVE_QUESTIONS_ANSWER'
 
@@ -11,6 +11,8 @@ export function handleInitialData(){
         .then(({users,questions}) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
+            dispatch(setAuthedUser('sarahedo'))
+
         })
     }
 }
