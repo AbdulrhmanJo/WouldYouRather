@@ -7,8 +7,8 @@ class Home extends Component {
         questionType: 'Unanswered'
     }
 
-    handleSwitchBtn = (event) => {
-        const val = event.target.value
+    handleChoice = (event) => {
+        const val = event.target.innerText
         if(val !== this.state.questionType){
             this.setState({
                 questionType: val
@@ -16,14 +16,54 @@ class Home extends Component {
         }
     }
 
+    handleSwitchBtn = (event) => {
+        const btn = event.target
+        btn.nextSibling.classList.toggle("show")
+    }
+
+    closeDropDwon = (event) => {
+        if (!event.target.matches('.dropdown-btn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-choices");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+    }
+
+    componentDidMount(){
+        document.addEventListener('click', this.closeDropDwon)
+    }
+    componentWillUnmount(){
+        document.removeEventListener('click', this.closeDropDwon)
+    }
     render(){
         const { answeredQuestionsID,  unAnsweredQuestionsID} = this.props
         const { questionType } = this.state
+        
         return(
             <div>
-                <h1>would you rather?</h1>
-                <button onClick={this.handleSwitchBtn} value="Unanswered">Unanswered</button>
-                <button onClick={this.handleSwitchBtn} value="Answered">Answered</button>
+                <div className="top-section">
+                    <h1 className="top-section--heading">Questions</h1>
+                    <div className="dropdown">
+                        <button className="dropdown-btn" onClick={this.handleSwitchBtn}>{questionType}</button>
+                            {
+                               questionType ===  'Unanswered' 
+                                ?   <div className="dropdown-choices">
+                                        <div onClick={this.handleChoice} className="choice-active">Unanswered</div>
+                                        <div onClick={this.handleChoice}>Answered</div>
+                                    </div>
+                                :   <div className="dropdown-choices">
+                                        <div onClick={this.handleChoice}>Unanswered</div>
+                                        <div onClick={this.handleChoice} className="choice-active">Answered</div>
+                                    </div>
+                            }
+                    </div>
+                </div>
+                
                 {
                     (questionType === 'Answered' ? answeredQuestionsID : unAnsweredQuestionsID)
                         .map((id) => (

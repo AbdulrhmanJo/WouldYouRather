@@ -63,7 +63,7 @@ class Navbar extends Component {
                         <span className="nav-list--item-text">leader board</span>
                 </NavLink>       
             </ul>
-            <button className='nav-btn' onClick={this.props.signOut}>sign Out</button>
+            <button className='nav-btn' onClick={this.signOut}>sign Out</button>
         </nav>
         )
     }

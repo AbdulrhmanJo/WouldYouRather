@@ -7,29 +7,21 @@ import PollPage from './pollPage'
 import Leaderboard from './Leaderboard'
 import NewPoll from './newPoll'
 import Navbar from './Navbar';
-import { setAuthedUser } from '../actions/authedUser'
 import Login from './login'
 class App extends Component {
- 
-
-  signOut = (event) => {
-    event.preventDefault()
-    const id = null
-    this.props.dispatch(setAuthedUser(id))
-  }
-
+  
   componentDidMount(){
     this.props.dispatch(handleInitialData())
   }
 
   render(){
-    const { unAuthorised, user} = this.props
+    const { unAuthorised } = this.props
     return (
       <BrowserRouter>
         { unAuthorised
           ? <Login />
           : <div className='container'>
-              <Navbar user={user} signOut={this.signOut}/>
+              <Navbar />
               <div className="main">
                 <Route exact path='/' component={Home} />
                 <Route path='/add' component={NewPoll} />
@@ -44,11 +36,9 @@ class App extends Component {
   } 
 }
 
-const mapStateToProp = ({authedUser, users}) => {
-  const user = users[authedUser]
+const mapStateToProp = ({authedUser}) => {
   return{
     unAuthorised: authedUser === null,
-    user
   }
 }
 
