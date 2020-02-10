@@ -28,8 +28,7 @@ class PollQuestion extends Component {
 
         return (
             <div>
-                <p>Choose one option:</p>
-                <form onSubmit={this.handlePollAnswer}>
+                <form onSubmit={this.handlePollAnswer} className="form">
                     <Option 
                         id={id} 
                         option='optionOne'
@@ -44,7 +43,9 @@ class PollQuestion extends Component {
                         optionText={optionTwo.text}
                         handleUserchoice={this.handleUserchoice}
                     />
-                    <button>vote</button>
+                    <div>
+                        <button className="question-btn">vote</button>
+                    </div>
                 </form>
             </div>
         )

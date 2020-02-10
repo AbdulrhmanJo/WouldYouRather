@@ -11,24 +11,23 @@ class PollPage extends Component {
 
         return (
             <div>
-                <img src={avatarURL} alt={`avatar of ${name}`} className="avatar"/>
-                <p>Would you rather?</p>
-                <p>Asked by <span>{name}</span></p>
+                <img src={avatarURL} alt={`avatar of ${name}`} className="question-avatar"/>
+                <p className="question-heading">Would you rather ?</p>
+                <p className="info">Asked by <span className="author">{name}</span></p>
                 {
                     answers[id] 
                         ? <PollResault question={this.props.question}/>
                         : <PollQuestion id={id}/>
                             
                 }
-
-            <p>{`another questions by ${name}`}</p>
-            {
-                questions.filter((qid) => qid !== id).map((id) => (
-                    <PollCard key={id} id={id}/>
-                ))
-                        
-                
-            }
+                {
+                    questions.length > 0 && <p className="user-question">{`Other questions by ${name}`}</p>
+                }
+                {
+                    questions.filter((qid) => qid !== id).map((id) => (
+                        <PollCard key={id} id={id}/>
+                    ))
+                }
                 
             </div>
         )
