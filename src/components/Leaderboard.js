@@ -31,7 +31,7 @@ class Leaderboard extends Component {
                     <thead>
                         <tr>
                             <th>Rank</th>
-                            <th>user</th>
+                            <th>User</th>
                             <th>Answered Questions</th>
                             <th>Created Questions</th>
                             <th>Score</th>
