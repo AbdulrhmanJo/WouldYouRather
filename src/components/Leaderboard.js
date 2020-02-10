@@ -25,7 +25,8 @@ class Leaderboard extends Component {
         const { users } = this.props
         return (
             <div>
-                <h1>Leaderboard</h1>
+                <h1 className="top-section--heading">Leader board</h1>
+                <p className="info">Below are the most active users of our game</p>
                 <table>
                     <thead>
                         <tr>

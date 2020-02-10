@@ -41,7 +41,7 @@ class NewPoll extends Component {
             <div >
                 <h1 className="top-section--heading">Create Question</h1>
                 <form onSubmit={this.addNewPoll}>
-                    <p className="form-text">Complete the below fields to create your question</p>
+                    <p className="info">Complete the below fields to create your question</p>
                     <p className="form-question">Would you rather...</p>
                     <div className="form-options">
                         <input 

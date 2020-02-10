@@ -127,7 +127,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: .7rem;
 
   &--heading {
     color:#333;
@@ -135,11 +134,13 @@ body {
     font-weight: 500;
     font-family: sans-serif;
     font-weight: bold;
+    text-transform: capitalize ;
   }
   
 }
 
 .info{
+  margin-top: .7rem;
   font-size: 1.5rem;
   color: #B1B1B1;
   margin-bottom: 5rem;
@@ -225,8 +226,6 @@ body {
       &-avatar{
         display: flex;
         align-items: center;
-        &--name{
-        }
       }
 
       &-votes{
