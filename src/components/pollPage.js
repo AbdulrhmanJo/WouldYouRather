@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollQuestion from "./PollQuestion";
 import PollResault from "./PollResault";
+import PollCard from './pollCard'
 class PollPage extends Component {
     render(){        
-        const { name, avatarURL } = this.props.user 
+        const { name, avatarURL,questions } = this.props.user 
         const { id } = this.props.match.params
         const { answers } = this.props.authedUserInfo
 
@@ -19,6 +20,15 @@ class PollPage extends Component {
                         : <PollQuestion id={id}/>
                             
                 }
+
+            <p>{`another questions by ${name}`}</p>
+            {
+                questions.filter((qid) => qid !== id).map((id) => (
+                    <PollCard key={id} id={id}/>
+                ))
+                        
+                
+            }
                 
             </div>
         )
