@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollCard from './pollCard'
+import noQuestion from '../icon/undraw.svg'
 class Home extends Component {
 
     state = {
@@ -68,10 +69,22 @@ class Home extends Component {
                 <p className="info">Below are the Questions created by all users.</p>
                 
                 {
-                    (questionType === 'Answered' ? answeredQuestionsID : unAnsweredQuestionsID)
-                        .map((id) => (
-                        <PollCard key={id} id={id}/>
+            
+                    questionType === 'Answered' 
+                    ? 
+                        answeredQuestionsID.map((id) => (
+                            <PollCard key={id} id={id}/>
                         ))
+                    : unAnsweredQuestionsID.length > 0 
+                        ? 
+                            unAnsweredQuestionsID.map((id) => (
+                                <PollCard key={id} id={id}/>
+                            ))
+                        :   <div className="error-conatiner">
+                                <img src={noQuestion} alt='no more question' className="question-error"></img>
+                                <p className="info">No more question to answer</p>
+                            </div>
+                
                 }
             </div>
         ) 

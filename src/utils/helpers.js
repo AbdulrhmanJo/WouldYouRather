@@ -5,5 +5,5 @@ export function convertTime(timestamp){
 }
 
 export function calcPercentageOfPoll(totalVotes, optionVote){
-    return Math.floor((optionVote/totalVotes) * 100)
+    return ((optionVote/totalVotes) * 100).toFixed(1)
 }
