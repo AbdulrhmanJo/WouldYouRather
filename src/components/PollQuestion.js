@@ -25,7 +25,7 @@ class PollQuestion extends Component {
 
     render(){
         const { optionOne, optionTwo, id } = this.props.question
-
+        const { option } = this.state
         return (
             <div>
                 <form onSubmit={this.handlePollAnswer} className="form">
@@ -44,7 +44,7 @@ class PollQuestion extends Component {
                         handleUserchoice={this.handleUserchoice}
                     />
                     <div>
-                        <button className="question-btn">vote</button>
+                        <button disabled={!option} className="question-btn">vote</button>
                     </div>
                 </form>
             </div>
