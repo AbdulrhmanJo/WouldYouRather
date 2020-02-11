@@ -7,7 +7,7 @@ class PollPage extends Component {
     render(){        
         const { name, avatarURL,questions } = this.props.user 
         const { id } = this.props.match.params
-        const { answers } = this.props.authedUserInfo
+        const { answers} = this.props.authedUserInfo
 
         return (
             <div>
