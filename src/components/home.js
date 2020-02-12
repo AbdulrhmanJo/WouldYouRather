@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollCard from './pollCard'
 import noQuestion from '../icon/undraw.svg'
+import LoadingBar from 'react-redux-loading-bar'
 class Home extends Component {
 
     state = {
@@ -48,7 +49,7 @@ class Home extends Component {
         const { questionType } = this.state
         
         return(
-            <div>
+            <div className="home">
                 <div className="top-section">
                     <h1 className="top-section--heading">Questions</h1>
                     <div className="dropdown">

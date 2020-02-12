@@ -8,6 +8,9 @@ import Leaderboard from './Leaderboard'
 import NewPoll from './newPoll'
 import Navbar from './Navbar';
 import Login from './login'
+import LoadingBar from 'react-redux-loading'
+
+
 class App extends Component {
   
   componentDidMount(){
@@ -23,6 +26,7 @@ class App extends Component {
           : <div className='container'>
               <Navbar />
               <div className="main">
+                <LoadingBar style={{ backgroundColor: '#fc5185', height: '5px' }}/>
                 <Route exact path='/' component={Home} />
                 <Route path='/add' component={NewPoll} />
                 <Route path='/leaderboard' component={Leaderboard} />

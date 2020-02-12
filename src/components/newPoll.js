@@ -38,7 +38,7 @@ class NewPoll extends Component {
         }
 
         return(
-            <div >
+            <div className="home">
                 <h1 className="top-section--heading">Create Question</h1>
                 <form onSubmit={this.addNewPoll}>
                     <p className="info">Complete the below fields to create your question</p>

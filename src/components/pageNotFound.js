@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import pageNotFound from '../icon/page_not_found.svg'
 const PageNotFound = (props) => {
     return (
-        <div className="notFound">
+        <div className="notFound home">
             <h1>Oops!</h1>
             <p className= 'info'>The question you are looking for, does not exist.</p>
             <div>

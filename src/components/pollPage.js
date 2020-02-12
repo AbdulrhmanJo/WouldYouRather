@@ -16,7 +16,7 @@ class PollPage extends Component {
         const { answers} = this.props.authedUserInfo
         return (
             this.props.question ?
-            <div>
+            <div className="home">
                 <img src={avatarURL} alt={`avatar of ${name}`} className="question-avatar"/>
                 <p className="question-heading">Would you rather ?</p>
                 <p className="info">Asked by <span className="author">{name}</span></p>
