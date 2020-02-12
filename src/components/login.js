@@ -22,8 +22,8 @@ class Login extends Component{
     }
 
     closeDropDwon = (event) => {
-        if (!event.target.matches('.dropdown-toggle')) {
-            var dropdowns = document.getElementsByClassName("dropdown-menu");
+        if (!event.target.matches('.login-dropdown-toggle')) {
+            var dropdowns = document.getElementsByClassName("login-dropdown-menu");
             var i;
             for (i = 0; i < dropdowns.length; i++) {
               var openDropdown = dropdowns[i];
@@ -66,13 +66,13 @@ class Login extends Component{
                     {/* <input 
                       type='text' 
                       ref={(input) => this.input = input}/> */}
-                      <div className="dropdown">
-                        <button className="dropdown-toggle" onClick={this.handleBtn}>
+                      <div className="login-dropdown">
+                        <button className="login-dropdown-toggle" onClick={this.handleBtn}>
                           {user}
                         </button>
-                        <div className="dropdown-menu">
+                        <div className="login-dropdown-menu">
                           { users.map((user) => (
-                            <button key={user[0]} className="dropdown-item" onClick={this.handleState}>
+                            <button key={user[0]} className="login-dropdown-item" onClick={this.handleState}>
                               <img src={user[1].avatarURL} alt='user avatar'></img>
                               <span>{user[1].name}</span>
                             </button>
