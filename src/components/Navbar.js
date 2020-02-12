@@ -18,7 +18,8 @@ class Navbar extends Component {
     
     return (
         <nav className="nav">
-            <h1 className="nav-heading">Would you rather?</h1>
+            <h1 className="nav-heading">Would you rather?
+            </h1>
             <div className="nav-avatar">
                 <img src={avatarURL} alt={`avatar of ${name}`} className='nav-avatar-img'></img>
                 <p className='nav-avatar-text'>hello, {name}</p>
