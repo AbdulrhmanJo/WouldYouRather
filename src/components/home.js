@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollCard from './pollCard'
 import noQuestion from '../icon/undraw.svg'
-import LoadingBar from 'react-redux-loading-bar'
+
 class Home extends Component {
 
     state = {
