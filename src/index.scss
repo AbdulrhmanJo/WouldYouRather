@@ -663,9 +663,10 @@ td {
     border-radius: 1rem;
 
     & > h1 {
-      font-size: 3rem;
-      color: #fc5185;
       text-align: center;
+      font-size: 3.4rem;
+      color: #fc5185;
+      margin-bottom:3rem;
     }
 
     &-text {
@@ -706,6 +707,7 @@ td {
     border-radius: 5rem;
     color: white;
     cursor: pointer;
+    margin-bottom: 1rem;
   }
 }
 

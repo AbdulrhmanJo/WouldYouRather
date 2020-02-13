@@ -5,7 +5,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends Component{
 
-    state= {
+    state = {
       user: 'select user'
     }
 
@@ -53,8 +53,7 @@ class Login extends Component{
     render(){
         const { user } = this.state
         const { users } = this.props    
-        console.log(users);
-            
+                    
         return (
           <div className="login">
             <div className="login-card">
