@@ -20,7 +20,7 @@ class App extends Component {
   render(){
     const { unAuthorised } = this.props
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         { unAuthorised
           ? <Login />
           : <div className='container'>
