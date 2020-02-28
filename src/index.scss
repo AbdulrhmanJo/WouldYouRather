@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
 
-$bp-large: 67em;
-$bp-meduim: 55.5em;
+$bp-large: 71.25em;
+$bp-meduim: 55em;
 $bp-small: 43em;
 
 *,
@@ -16,99 +16,134 @@ $bp-small: 43em;
 html {
   font-size: 62.5%; // 1rem = 10px
 
-  @media only screen and (max-width: $bp-large){
-    font-size: 55%;
-  }
-  @media only screen and (max-width: $bp-meduim){
-    font-size: 45%;
-  }
+  // @media only screen and (max-width: $bp-large){
+  //   font-size: 57%;
+  // }
+  // @media only screen and (max-width: $bp-meduim){
+  //   // font-size: 57%;
+  // }
 
-  @media only screen and (max-width: $bp-small){
-    font-size: 42%;
+  @media only screen and (max-width: $bp-small) {
+    font-size: 50%;
   }
- 
 }
-
 
 body {
   font-family: "Roboto", sans-serif;
   font-size: inherit;
-  display: flex;
-  justify-content: center;
   width: 100vw;
 }
 
 .container {
-  @media only screen and (max-width: $bp-small){
-    // width: 100rem;
-    flex-direction: column;
-    align-items: center;
+  // @media only screen and (max-width: $bp-meduim){
+  //   // width: 100rem;
+  //   flex-direction: column;
+  //   align-items: center;
+  // }
+  @media only screen and (max-width: $bp-large) {
+    width: 100%;
   }
-  width: 100%;
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    margin: 0;
+  }
+  width: 114rem;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
 }
 
 .nav {
+  @media only screen and (max-width: $bp-meduim) {
+    width: 15%;
+    padding: 1rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    z-index: 100;
+    padding: 0;
+  }
+  width: 30%;
   height: 100vh;
-  padding: 1rem 5rem;
+  padding: 2rem 4rem;
   font-size: 1.9rem;
   position: sticky;
-  
-  @media only screen and (max-width: $bp-small){
-    padding: 1.6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100vw;
-    overflow: hidden;
-    background-color: white;
-    z-index: 100;
-  }
+  display: flex;
+  flex-direction: column;
   top: 0;
+
+  &-top{
+    @media only screen and (max-width: $bp-small) {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgb(189, 189, 189);
+      padding: 1rem 2rem;  
+      align-items: center;
+    }
+    
+  }
+  &-container{
+
+    display: flex;
+    flex-direction: column;
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: row;
+      justify-content: space-between;
+      box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.07);
+      // padding: 1rem 2rem ;
+    }
+  }
   &-heading {
+    text-align: left;
+    width: 100%;
     font-family: "Pacifico", sans-serif;
-    font-size: 2.5rem;
     text-transform: capitalize;
     margin-bottom: 2rem;
-    
-    @media only screen and (max-width: $bp-small){
-      text-align: left;
-      margin-right: 2rem;
+    @media only screen and (max-width: $bp-meduim) {
+      font-size: 1.9rem;
+      // text-align: left;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.7rem;
       margin-bottom: 0;
-    }
 
-   & ~ span{
-      font-family: "Pacifico", sans-serif;
-      font-size: 2.5rem;
-      text-transform: capitalize;
-      margin-bottom: 2rem;
-      display: block;
-
-      
     }
+    //  & ~ span{
+    //     font-family: "Pacifico", sans-serif;
+    //     font-size: 2.5rem;
+    //     text-transform: capitalize;
+    //     margin-bottom: 2rem;
+    //     display: block;
+    //   }
   }
   &-avatar {
     display: flex;
     align-items: center;
-    @media only screen and (max-width: $bp-small){
-      flex-direction: row;
-      align-items: center;
-    }
     flex-direction: column;
     margin-bottom: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: 0;
+    }
+
     &-img {
       padding: 0.2rem;
       border: 0.1rem solid grey;
       width: 7rem;
       height: 7rem;
-      @media only screen and (max-width: $bp-small){
-        width: 6rem;
-        height: 6rem;
-      }
       border-radius: 50%;
       margin-bottom: 1rem;
+
+      @media only screen and (max-width: $bp-meduim) {
+        width: 5rem;
+        height: 5rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        margin-bottom: 0;
+      }
     }
     &-text {
       font-size: 1.3rem;
@@ -118,23 +153,29 @@ body {
       border-radius: 2rem;
       color: rgb(87, 87, 87);
       transition: all 0.2s;
-      cursor: pointer;
-
-      @media only screen and (max-width: $bp-small){
-        display: none;
-      }
-     
       &:hover {
         background-color: #e6e6e6;
+      }
+
+      @media only screen and (max-width: $bp-meduim) {
+        display: none;
       }
     }
   }
   &-list {
     list-style: none;
-    @media only screen and (max-width: $bp-small){
-      display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @media only screen and (max-width: $bp-meduim) {
+      align-items: center;
       justify-content: center;
-      width: 100%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: row;
+      justify-content: space-between;
+      width:70%; 
     }
     &--item {
       font-weight: 500;
@@ -148,24 +189,36 @@ body {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        // @media only screen and (max-width: $bp-meduim){
-        //   // width: 100rem; 
-        //   flex-direction: column; 
-        // }
+        @media only screen and (max-width: $bp-small) {
+          width: 100%;
+          margin-bottom: 0;
+          padding: 1.5rem;
+          justify-content: center;
+          align-items: center;
+
+        }
       }
 
       &:hover:not(.active) {
         border-radius: 2rem;
         background-color: #f5f5f5;
+        @media only screen and (max-width: $bp-meduim) {
+          border-radius: 0;
+        }
       }
 
       &-icon {
         margin-right: 1rem;
+        @media only screen and (max-width: $bp-meduim) {
+          margin-right: 0rem;
+        }
       }
 
       &-text {
         text-transform: capitalize;
-        @media only screen and (max-width: $bp-small){
+        margin-right: 0.5rem;
+
+        @media only screen and (max-width: $bp-meduim) {
           display: none;
         }
       }
@@ -177,7 +230,6 @@ body {
     font-family: inherit;
     font-size: 1.5rem;
     padding: 1.3rem 1.3rem;
-    width: 100%;
     font-weight: 500;
     text-transform: capitalize;
     background-color: #fc5185;
@@ -185,6 +237,17 @@ body {
     border-radius: 4rem;
     transition: all 0.2s;
     color: white;
+    cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 30%;
+      margin-top: 0rem;
+      border-radius: 0rem;
+      padding: 1.3rem 1.3rem;
+      font-size: 1.7rem;
+
+    }
+
     &:hover {
       background-color: #e74978;
     }
@@ -192,32 +255,38 @@ body {
 }
 
 .main {
-  background-color: #fafafa;
-  width: 75rem;
-  @media only screen and (max-width: $bp-small){
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  @media only screen and (max-width: $bp-meduim) {
+    width: 85%;
   }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 100%;
+    height: 100%;
+  }
+  background-color: #fafafa;
+  width: 70%;
   border-left: 0.1rem solid rgb(230, 230, 230);
   border-right: 0.1rem solid rgb(230, 230, 230);
 }
-.home {
-  padding: 3rem 5rem;
-}
-.top-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  &--heading {
-    color: #333;
-    font-size: 2.5rem;
-    font-weight: 500;
-    font-family: sans-serif;
-    font-weight: bold;
-    text-transform: capitalize;
+.top-section {
+  padding: 3rem 5rem;
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem 3rem;
+  }
+  width: 100%;
+  &-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &--heading {
+      color: #333;
+      font-size: 2.5rem;
+      font-weight: 500;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
   }
 }
 
@@ -225,11 +294,11 @@ body {
   margin-top: 0.7rem;
   font-size: 1.5rem;
   color: #b1b1b1;
-  margin-bottom: 5rem;
 }
 
 .dropdown {
   position: relative;
+  width: 12rem;
   &-choices {
     box-shadow: 0px 0px 1rem 0rem rgba(0, 0, 0, 0.082);
     width: 100%;
@@ -247,7 +316,6 @@ body {
       cursor: pointer;
     }
   }
-  width: 12rem;
   &-btn {
     padding: 0.9rem 1.3rem;
     width: 100%;
@@ -257,7 +325,6 @@ body {
     border: 0;
     transition: all 0.2s;
     font-family: inherit; /* Important for vertical align on mobile phones */
-
     z-index: 2;
     position: relative;
     text-align: left;
@@ -282,9 +349,16 @@ body {
   }
 }
 
+.questions-section {
+  width: 100%;
+  padding: 3rem 5rem;
+  @media only screen and (max-width: $bp-small) {
+    padding: 1rem 3rem;
+  }
+}
+
 .question {
-  width: 65rem;
-  
+  width: 100%;
   &:link,
   &:visited {
     text-decoration: none;
@@ -309,7 +383,6 @@ body {
       display: flex;
       align-items: center;
     }
-
     &-votes {
       font-size: 1.3rem;
       background-color: #ffe9b0;
@@ -337,6 +410,14 @@ body {
   margin-right: 1rem;
 }
 
+.create-question {
+  padding: 3rem 5rem;
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem 3rem;
+  }
+  width: 100%;
+}
+
 .form {
   &-text {
     margin-top: 1rem;
@@ -355,7 +436,7 @@ body {
   &-options {
     display: flex;
     flex-direction: column;
-
+    width: 100%;
     & > input {
       padding: 2.2rem 2rem;
       margin-bottom: 2rem;
@@ -393,8 +474,15 @@ body {
   padding: 2rem;
   background-color: gray;
 }
-
+.leaderBoard {
+  padding: 3rem 5rem;
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem 3rem;
+  }
+  width: 100%;
+}
 table {
+  margin-top: 5rem;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 1.5rem;
@@ -447,6 +535,11 @@ td {
   & > p {
     font-size: 1.5rem;
   }
+}
+
+.pollPage {
+  width: 100%;
+  padding: 3rem 5rem;
 }
 
 .question {
@@ -529,6 +622,10 @@ td {
   margin-bottom: 2.5rem;
 }
 
+.result-section {
+  margin-top: 5rem;
+}
+
 .result {
   &:not(:first-child) {
     margin-bottom: 10rem;
@@ -576,8 +673,6 @@ td {
   font-weight: 700;
   font-size: 2rem;
 }
-
-
 
 .choice-active {
   font-weight: 500;
@@ -653,10 +748,12 @@ td {
   justify-content: center;
   align-items: center;
   background-color: #fafafa;
-  
 
   &-card {
     width: 40rem;
+    @media only screen and (max-width: $bp-small) {
+      width: 85%;
+    }
     background-color: white;
     box-shadow: 0 0.7rem 1.4rem 0 rgba(0, 0, 0, 0.07);
     padding: 3rem 4rem;
@@ -666,7 +763,7 @@ td {
       text-align: center;
       font-size: 3.4rem;
       color: #fc5185;
-      margin-bottom:3rem;
+      margin-bottom: 3rem;
     }
 
     &-text {
@@ -683,7 +780,6 @@ td {
     }
 
     &-form {
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -695,13 +791,13 @@ td {
   }
 }
 
-.loginn{
+.loginn {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   &-btn {
     margin-top: 2rem;
-    padding: .7rem 4rem;
+    padding: 0.7rem 4rem;
     font-size: 1.5rem;
     background-color: #364f6b;
     border-radius: 5rem;
@@ -711,7 +807,7 @@ td {
   }
 }
 
- .login-dropdown {
+.login-dropdown {
   width: 100%;
   &-toggle {
     margin-top: 1rem;
@@ -725,7 +821,7 @@ td {
     position: relative;
     cursor: pointer;
     outline: none;
-    transition: all .2s;
+    transition: all 0.2s;
     &::after {
       position: absolute;
       right: 1.7rem;
@@ -740,7 +836,7 @@ td {
     }
 
     &:hover,
-    &:active{
+    &:active {
       background-color: #cbcbcb;
     }
   }

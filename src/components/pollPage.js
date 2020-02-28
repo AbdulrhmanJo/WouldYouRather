@@ -16,18 +16,20 @@ class PollPage extends Component {
         const { answers} = this.props.authedUserInfo
         return (
             this.props.question ?
-            <div className="home">
+            <div className="pollPage">
                 <img src={avatarURL} alt={`avatar of ${name}`} className="question-avatar"/>
                 <p className="question-heading">Would you rather ?</p>
                 <p className="info">Asked by <span className="author">{name}</span></p>
+                <div className="result-section">
+                    {
+                        answers[id] 
+                            ? <PollResault question={this.props.question}/>
+                            : <PollQuestion id={id}/>
+                                
+                    }
+                </div>
                 {
-                    answers[id] 
-                        ? <PollResault question={this.props.question}/>
-                        : <PollQuestion id={id}/>
-                            
-                }
-                {
-                    questions.length > 0 && <p className="user-question">{`Other questions by ${name}`}</p>
+                    questions.length > 0 && <p className="user-question">{`other questions by ${name}`}</p>
                 }
                 {
                     questions.filter((qid) => qid !== id).map((id) => (

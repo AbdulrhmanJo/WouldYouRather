@@ -24,8 +24,8 @@ class Leaderboard extends Component {
         const usersScore = this.userRank(this.props.users)
         const { users } = this.props
         return (
-            <div className="home">
-                <h1 className="top-section--heading">Leader board</h1>
+            <div className="leaderBoard">
+                <h1 className="top-section-action--heading">Leader board</h1>
                 <p className="info">Below are the most active users of our game</p>
                 <table>
                     <thead>

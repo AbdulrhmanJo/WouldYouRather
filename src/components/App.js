@@ -23,7 +23,7 @@ class App extends Component {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         { unAuthorised
           ? <Login />
-          : <div className='container'>
+          : <div className="container">
               <Navbar />
               <div className="main">
                 <LoadingBar style={{ backgroundColor: '#fc5185', height: '5px' }}/>

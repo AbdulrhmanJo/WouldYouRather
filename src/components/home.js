@@ -49,44 +49,48 @@ class Home extends Component {
         const { questionType } = this.state
         
         return(
-            <div className="home">
+            <div>
                 <div className="top-section">
-                    <h1 className="top-section--heading">Questions</h1>
-                    <div className="dropdown">
-                        <button className="dropdown-btn" onClick={this.handleSwitchBtn}>{questionType}</button>
-                            {
-                               questionType ===  'Unanswered' 
-                                ?   <div className="dropdown-choices">
-                                        <div onClick={this.handleChoice} className="choice-active">Unanswered</div>
-                                        <div onClick={this.handleChoice}>Answered</div>
-                                    </div>
-                                :   <div className="dropdown-choices">
-                                        <div onClick={this.handleChoice}>Unanswered</div>
-                                        <div onClick={this.handleChoice} className="choice-active">Answered</div>
-                                    </div>
-                            }
+                    <div className="top-section-action">
+                        <h1 className="top-section-action--heading">Questions</h1>
+                        <div className="dropdown">
+                            <button className="dropdown-btn" onClick={this.handleSwitchBtn}>{questionType}</button>
+                                {
+                                questionType ===  'Unanswered' 
+                                    ?   <div className="dropdown-choices">
+                                            <div onClick={this.handleChoice} className="choice-active">Unanswered</div>
+                                            <div onClick={this.handleChoice}>Answered</div>
+                                        </div>
+                                    :   <div className="dropdown-choices">
+                                            <div onClick={this.handleChoice}>Unanswered</div>
+                                            <div onClick={this.handleChoice} className="choice-active">Answered</div>
+                                        </div>
+                                }
+                        </div>
                     </div>
+                    <p className="info">Below are the Questions created by all users.</p>
                 </div>
-                <p className="info">Below are the Questions created by all users.</p>
+                <div className="questions-section">
+                    
+                    {
                 
-                {
-            
-                    questionType === 'Answered' 
-                    ? 
-                        answeredQuestionsID.map((id) => (
-                            <PollCard key={id} id={id}/>
-                        ))
-                    : unAnsweredQuestionsID.length > 0 
+                        questionType === 'Answered' 
                         ? 
-                            unAnsweredQuestionsID.map((id) => (
+                            answeredQuestionsID.map((id) => (
                                 <PollCard key={id} id={id}/>
                             ))
-                        :   <div className="error-conatiner">
-                                <img src={noQuestion} alt='no more question' className="question-error"></img>
-                                <p className="info">No more question to answer</p>
-                            </div>
-                
-                }
+                        : unAnsweredQuestionsID.length > 0 
+                            ? 
+                                unAnsweredQuestionsID.map((id) => (
+                                    <PollCard key={id} id={id}/>
+                                ))
+                            :   <div className="error-conatiner">
+                                    <img src={noQuestion} alt='no more question' className="question-error"></img>
+                                    <p className="info">No more question to answer</p>
+                                </div>
+                    
+                    }
+                </div>
             </div>
         ) 
     }
