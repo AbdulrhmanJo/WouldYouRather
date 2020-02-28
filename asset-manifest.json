@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/WouldYouRather/static/css/main.1d210192.chunk.css",
+    "main.css": "/WouldYouRather/static/css/main.4feacad5.chunk.css",
     "main.js": "/WouldYouRather/static/js/main.4cff4af1.chunk.js",
     "main.js.map": "/WouldYouRather/static/js/main.4cff4af1.chunk.js.map",
     "runtime-main.js": "/WouldYouRather/static/js/runtime-main.cb765eff.js",
@@ -8,9 +8,9 @@
     "static/js/2.cd022d81.chunk.js": "/WouldYouRather/static/js/2.cd022d81.chunk.js",
     "static/js/2.cd022d81.chunk.js.map": "/WouldYouRather/static/js/2.cd022d81.chunk.js.map",
     "index.html": "/WouldYouRather/index.html",
-    "precache-manifest.90bf986cd43bc1064934e9af6c57b7f9.js": "/WouldYouRather/precache-manifest.90bf986cd43bc1064934e9af6c57b7f9.js",
+    "precache-manifest.9ba9965d1c13996d25f740b0d56b9bd9.js": "/WouldYouRather/precache-manifest.9ba9965d1c13996d25f740b0d56b9bd9.js",
     "service-worker.js": "/WouldYouRather/service-worker.js",
-    "static/css/main.1d210192.chunk.css.map": "/WouldYouRather/static/css/main.1d210192.chunk.css.map",
+    "static/css/main.4feacad5.chunk.css.map": "/WouldYouRather/static/css/main.4feacad5.chunk.css.map",
     "static/js/2.cd022d81.chunk.js.LICENSE.txt": "/WouldYouRather/static/js/2.cd022d81.chunk.js.LICENSE.txt",
     "static/media/page_not_found.svg": "/WouldYouRather/static/media/page_not_found.6a37cd2f.svg",
     "static/media/undraw.svg": "/WouldYouRather/static/media/undraw.5f19ec41.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.cb765eff.js",
     "static/js/2.cd022d81.chunk.js",
-    "static/css/main.1d210192.chunk.css",
+    "static/css/main.4feacad5.chunk.css",
     "static/js/main.4cff4af1.chunk.js"
   ]
 }
